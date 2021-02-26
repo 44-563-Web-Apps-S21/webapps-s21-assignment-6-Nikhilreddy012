@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>The Secret Place</title>
+ </head>
+<body>
+
+<h2>Hidden things by Nikhil Reddy Pannala</h2>
+
+<form>
+    <label for="form1_secretWord">Enter the secret word </label>
+    <input type ="password" id="form1_secretWord" name="form1_secretWord" min=10 max=50 step=2 value="Secret"> <br>
+
+    <label for="form1_guess">Enter a guess</label>
+    <input type ="text" id="form1_guess" name="form1_guess" autofocus> <br>
+
+    <input type="button" onclick="processGuess()" value="Check the guess">
+</form>
+
+<p id="result">Correct: 0  Wrong: 0</p>
+
+<script> 
+let correct = 0;
+let wrong = 0;
+function processGuess (){
+    console.log("Checking the guess")
+    secretWord = document.getElementById("form1_secretWord").value
+    guess = document.getElementById("form1_guess").value
+    out = document.getElementById("result")
+    if(secretWord == guess){
+        alert("Congratulations")
+        correct++
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong
+    } else {
+        alert("Sorry")
+        wrong++
+        out.innerHTML = "Correct: " + correct + " Wrong: " + wrong
+    }
+}
+</script>
+
+</body>
+</html> 

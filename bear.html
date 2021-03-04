@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>My Bear</title>
+ </head>
+<body>
+
+<h2>Nikhil Reddy Pannala builds a bear</h2>
+
+<form>
+    <input type="checkbox" id="cb1_hat" name="item1" value="hat">
+    <label for="cb1_hat">hat</label><br>
+
+    <input type="checkbox" id="cb1_scarf" name="item2" value="scarf">
+    <label for="cb1_scarf">scarf</label><br>
+
+    <input type="checkbox" id="cb1_shirt" name="item3" value="shirt">
+    <label for="cb1_shirt">shirt</label><br>
+
+    <input type="button" onclick="startBear()" value="Start a bear">
+</form>
+
+<p id="result">The bear will be displayed here</p>
+
+<script>    
+    let my_bear = {}
+function startBear (){
+    my_bear = {}
+    first = document.getElementById("cb1_hat").checked
+    second = document.getElementById("cb1_scarf").checked
+    third = document.getElementById("cb1_shirt").checked
+    out = document.getElementById("result")
+    first? my_bear["hat"] = true : my_bear["hat"] = false
+    second? my_bear["scarf"] = true : my_bear["scarf"] = false
+    third? my_bear["shirt"] = true : my_bear["shirt"] = false
+    my_bear = JSON.stringify(my_bear)
+    out.innerHTML = my_bear
+    my_bear = JSON.parse(my_bear)
+}
+</script>
+
+</body>
+</html> 

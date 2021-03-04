@@ -22,6 +22,16 @@
 
 <p id="result">The bear will be displayed here</p>
 
+<form>
+    <label for="cb2_property">Enter a property </label>
+    <input type ="text" id="cb2_property" name="property" min=10 max=50 step=2 value="color"> <br>
+
+    <label for="cb2_value">Enter a value </label>
+    <input type ="text" id="cb2_value" name="value" autofocus> <br>
+
+    <input type="button" onclick="updatebear()" value="Update the bear">
+</form>
+
 <script>    
     let my_bear = {}
 function startBear (){
@@ -35,6 +45,15 @@ function startBear (){
     third? my_bear["shirt"] = true : my_bear["shirt"] = false
     my_bear = JSON.stringify(my_bear)
     out.innerHTML = my_bear
+    my_bear = JSON.parse(my_bear)
+}
+function updatebear() {
+    property = document.getElementById("cb2_property").value
+    value = document.getElementById("cb2_value").value
+    output = document.getElementById("result")
+    my_bear[property] = value
+    my_bear = JSON.stringify(my_bear)
+    output.innerHTML = my_bear
     my_bear = JSON.parse(my_bear)
 }
 </script>

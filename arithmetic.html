@@ -19,6 +19,26 @@
 
 <p id="result">Permutation result will be displayed here </p>
 
+<form >
+    <input type="radio" id="addition" name="operations" value="plus"   
+     onclick="processRadio()">
+   <label for="addition">+</label></br>
+ 
+   <input type="radio" id="subtraction" name="operations" 
+      value="minus" onclick="processRadio()">
+   <label for="subtraction">-</label></br>
+ 
+   <input type="radio" id="multiplication" name="operations"   
+      value="times" onclick="processRadio()">
+   <label for="multiplication">*</label></br>
+ 
+   <input type="radio" id="division" name="operations"   
+      value="divide" onclick="processRadio()">
+   <label for="division">/</label>
+ </form>
+ 
+ <p id="arithmeticResult">Arithmetic result will be displayed here </p>
+
 <script> 
 function permutations (){
     let product = 1;
@@ -29,6 +49,26 @@ function permutations (){
         product = product * i;
     }
     output.innerHTML = first + " permute " + second + " is " + product
+}
+function processRadio() {
+    let result;
+    first = Number(document.getElementById("form1_number1").value)
+    second = Number(document.getElementById("form1_number2").value)
+    out = document.getElementById("arithmeticResult")
+    plus = document.getElementById("addition").checked
+    minus = document.getElementById("subtraction").checked
+    times = document.getElementById("multiplication").checked
+    divide = document.getElementById("division").checked
+    if(plus){
+        result = "Sum of "+first+" and "+second+" is "+ (first + second)
+    } else if(minus) {
+        result = "Subtraction of "+first+" and "+second+" is "+ (first - second)
+    } else if(times) {
+        result = "Product of "+first+" and "+second+" is "+ (first * second)
+    } else if(divide) {
+        result = "Division of "+first+" and "+second+" is "+ (first / second)
+    }
+    out.innerHTML = result
 }
 </script>
 
